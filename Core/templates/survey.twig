@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/assets/style.css">
+<style>
+{% for stylesheet in stylesheets %}
+{{ stylesheet }}
+{% endfor %}
+</style>
+<title>{{ survey.title }}</title>
+</head>
+
+<body>
+    <h1 class="survey__title">{{ survey.title }}</h1>
+    <p class="survey__description">{{ survey.description }}</p>
+    <form id="survey-form" action="{{ submitUrl }}" method="post" enctype="multipart/form-data">
+        {% for question in questions -%}
+            <div class="survey-field__wrapper">
+                <label>
+                    <span class="survey-field__label">{{ question.question }}</span>
+
+                    {% if question.required == false %}
+                        <span class="survey-field__optional">(optional)</span>
+                    {% endif %}
+
+                    <div>
+                        <span class="survey__error-message"></span>
+                        {{ question.html|raw }}
+                    </div>
+                </label>
+            </div>
+        {% endfor %}
+        <div class="survey__submit-wrapper">
+            <button type="submit" id="survey-form-submit" class="button button--primary">
+                <span class="button__label">Senden</span>
+                <div class="button__loading-animation"><div></div><div></div><div></div></div>
+            </button>
+        </div>
+    </form>
+    <footer class="survey-footer">
+        <a href="/datenschutz">Datenschutzerklärung</a>
+        <span class="survey-footer__separator">&#0183;</span>
+        <a href="/impressum">impressum</a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+    "name": "ponyform/plugin-contract",
+    "description": "PonyForm Plugin Contracts",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Andreas Mischke",
+            "email": "andreas@mischke.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PonyForm\\PluginContract\\": ""
+        }
+    },
+    "conflict": {
+        "ponyform/core": "<0.1.0",
+        "ponyform/slim-http-adapter": "<0.1.0",
+        "ponyform/text-question-plugin": "<0.1.0",
+        "ponyform/selection-question-plugin": "<0.1.0",
+        "ponyform/sqlite-store-plugin": "<0.1.0"
+    }
+}
