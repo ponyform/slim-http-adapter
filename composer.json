@@ -1,6 +1,7 @@
 {
     "name": "ponyform/slim-http-adapter",
     "description": "PonyForm HTTP adapter to integrate with slim applications",
+    "version": "v0.0.0",
     "type": "library",
     "license": "proprietary",
     "authors": [
@@ -10,18 +11,22 @@
         }
     ],
     "require": {
+        "ponyform/core": "^0.0",
         "slim/slim": "^4.10"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../packages/*"
+        },
+        {
+            "type": "path",
+            "url": "../../plugins/*"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "PonyForm\\SlimHttpAdapter\\": ""
         }
-    },
-    "conflict": {
-        "ponyform/core": "<0.1.0",
-        "ponyform/plugin-contract": "<0.1.0",
-        "ponyform/text-question-plugin": "<0.1.0",
-        "ponyform/selection-question-plugin": "<0.1.0",
-        "ponyform/sqlite-store-plugin": "<0.1.0"
     }
 }
